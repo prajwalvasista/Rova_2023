@@ -9,7 +9,7 @@ class StoreScreen extends StatelessWidget {
   List<Widget> containerList = [];
 
   Future<void> _getShopDetails() async {
-    _shopsModel.city = "Bengaluru";
+    _shopsModel.city = "Tumkur"; //"Bengaluru";
     var result = await _shopsController.getShopDetails(_shopsModel);
     shopList = result["data"];
   }
