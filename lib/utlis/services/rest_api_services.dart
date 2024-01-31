@@ -18,7 +18,7 @@ class ApiBaseHelper {
   final String signUpOtp = "api/Users/signUp";
   final String login = "api/Users/Login?phoneNumber=";
   final String nearbyShopDetails =
-      "NearbyShopDetails/getShopDetailsByCity?City=";
+      "api/NearbyShopDetails/getShopDetailsByCity?City=";
 
   final String verifySignUpOtp = "api/Users/verifySignup";
   final String verifyLoginOtp = "api/Users/verifyLogin";

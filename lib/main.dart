@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       locale: Locale('en', 'US'),
       title: 'Rova-23',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',

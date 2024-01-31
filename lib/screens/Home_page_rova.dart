@@ -458,7 +458,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.lightGreen,
             currentIndex: _currentIndex,
             onTap: (index) {
               setState(() {
@@ -491,7 +491,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: 'Scan',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.storefront),
+                icon: Icon(Icons.store),
                 label: 'Store',
               ),
             ],
