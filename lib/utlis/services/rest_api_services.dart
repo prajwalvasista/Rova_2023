@@ -32,7 +32,7 @@ class ApiBaseHelper {
 
     Map<String, String> headers = {
       "Accept": "application/json",
-      //   "Authorization": token
+      //  "Authorization": token
     };
 
     try {
@@ -126,6 +126,7 @@ class ApiBaseHelper {
     } else {
       request = http.Request('POST', Uri.parse(_localUrl + verifyLoginOtp));
     }
+
     request.body = json.encode(verifyOtpModel);
     request.headers.addAll(headers);
     http.Response response =
@@ -138,19 +139,29 @@ class ApiBaseHelper {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
         'POST', Uri.parse(_localUrl + login + loginModel.phoneNumber));
+
     request.headers.addAll(headers);
+
     http.Response response =
         await http.Response.fromStream(await request.send());
-    var res = jsonDecode(response.body);
+
+    var res = jsonEncode(response.body);
     return res;
   }
 
   Future<dynamic> getShopDetails(ShopsModel shopsModel) async {
     String city = shopsModel.city ?? "";
-    var headers = {'Content-Type': 'application/json'};
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String tokenOne = prefs.getString('token') ?? "";
+    var headers = {
+      'Authorization': 'Bearer $tokenOne',
+    };
     var request =
         http.Request('GET', Uri.parse(_localUrl + nearbyShopDetails + city));
+    request.body = '''''';
     request.headers.addAll(headers);
+
     http.Response response =
         await http.Response.fromStream(await request.send());
     var res = jsonDecode(response.body);
