@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:rova_23/controllers/verifyOtp_controller.dart';
@@ -91,6 +92,7 @@ class OtpScreen extends StatelessWidget {
                       await _requestLocationPermission(context);
                       var sharedPref = await SharedPreferences.getInstance();
                       sharedPref.setString('token', res['data']['token']);
+                      sharedPref.setString('tokenOne', res['data']['token']);
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => HomeScreen()),
