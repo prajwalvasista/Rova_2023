@@ -7,7 +7,7 @@ import 'package:rova_23/utlis/services/rest_api_services.dart';
 
 TextEditingController phoneNumberController = TextEditingController();
 LoginController _loginController = LoginController();
-LoginModel _loginmodel = LoginModel(phoneNumber: '');
+LoginModel _loginmodel = LoginModel(phone: '');
 
 class LoginPage extends StatelessWidget {
   Future<dynamic> _loginByNumber(LoginModel loginModel) async {
@@ -64,7 +64,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () async {
                   if (validatePhoneNumber(phoneNumberController.text) == null) {
                     ApiBaseHelper.phoneNumber =
-                        _loginmodel.phoneNumber = phoneNumberController.text;
+                        _loginmodel.phone = phoneNumberController.text;
 
                     ApiBaseHelper.isLogin = true;
                     // Show loader while signing in
@@ -127,7 +127,10 @@ class LoginPage extends StatelessWidget {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(185, 65, 137, 200),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.green,
                   foregroundColor: Color.fromARGB(255, 233, 238, 238),
                 ),
                 child: Text('Sign in'),
@@ -193,7 +196,7 @@ class LoginPage extends StatelessWidget {
                     child: Text(
                       "Register here",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 27, 155, 191),
+                        color: Colors.green,
                         decoration: TextDecoration.underline,
                       ),
                     ),
