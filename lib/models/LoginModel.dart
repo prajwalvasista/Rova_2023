@@ -1,15 +1,15 @@
 class LoginModel {
-  String phoneNumber = "";
+  String? phone;
 
-  LoginModel({required this.phoneNumber});
+  LoginModel({required this.phone});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
-    phoneNumber = json['phoneNumber'];
+    phone = json['phone'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['phoneNumber'] = this.phoneNumber;
+    data['phone'] = this.phone;
     return data;
   }
 }
