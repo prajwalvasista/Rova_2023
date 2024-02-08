@@ -16,7 +16,7 @@ class ApiBaseHelper {
   final String _localUrl = "https://rova_solutions.acelucid.com/";
   //"https://localhost:7178/";
   final String signUpOtp = "api/Users/signUp";
-  final String login = "api/Users/Login?phoneNumber=";
+  final String login = "api/Users/Login";
   final String nearbyShopDetails =
       "api/NearbyShopDetails/getShopDetailsByCity?City=";
 
@@ -137,15 +137,15 @@ class ApiBaseHelper {
 
   Future<dynamic> loginByNumber(LoginModel loginModel) async {
     var headers = {'Content-Type': 'application/json'};
-    var request = http.Request(
-        'POST', Uri.parse(_localUrl + login + loginModel.phoneNumber));
+    var request = http.Request('POST', Uri.parse(_localUrl + login));
+    request.body = json.encode(loginModel);
 
     request.headers.addAll(headers);
 
     http.Response response =
         await http.Response.fromStream(await request.send());
 
-    var res = jsonEncode(response.body);
+    var res = jsonDecode(response.body);
     return res;
   }
 
