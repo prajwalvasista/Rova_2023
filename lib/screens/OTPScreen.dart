@@ -1,10 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:rova_23/controllers/verifyOtp_controller.dart';
 import 'package:rova_23/models/VerifyOtpModel.dart';
 import 'package:rova_23/screens/Home_page_rova.dart';
-import 'package:rova_23/screens/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utlis/services/rest_api_services.dart';
